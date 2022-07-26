@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Try-context';
+
+  v: number = 0;
+
+  handleClick() {
+    this.v++;
+  }
+
+  v2: number = 0;
+
+  handleClick2() {
+    this.v2++;
+  }
 }
