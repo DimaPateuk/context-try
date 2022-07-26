@@ -7,8 +7,8 @@
     increase v2
   </button>
 
-  <other-with context-provider [v]="this.v">
-    <context-consumer *ngIf="this.v !== 2">
+  <other-with [v]="this.v">
+    <context-consumer>
     </context-consumer>
   </other-with>
 
