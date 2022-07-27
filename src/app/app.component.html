@@ -7,19 +7,22 @@
     increase v2
   </button>
 
-  <other-with [v]="this.v">
-    <context-consumer>
-    </context-consumer>
-  </other-with>
-
   <context-provider [value]="this.v">
     <context-consumer>
     </context-consumer>
   </context-provider>
 
-  <!-- <context-provider [value]="this.v"> -->
-  <!--   <other> -->
-  <!--   </other> -->
-  <!-- </context-provider> -->
+  <context-provider [value]="this.v">
+    <other>
+    </other>
+  </context-provider>
+
+  <other-with [v]="this.v2">
+    <context-consumer>
+    </context-consumer>
+  </other-with>
+
+  <context-consumer>
+  </context-consumer>
 
 </div>

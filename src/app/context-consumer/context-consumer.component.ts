@@ -1,6 +1,5 @@
-import { Optional, SkipSelf, Component, OnInit, Input, Host } from '@angular/core';
-import { ContextProviderDirective, ContextProviderComponent } from '../context-provider/context-provider.component';
-import { ContextProviderService } from '../context-provider.service';
+import { Optional, SkipSelf, Component, OnInit, Input, Host, ElementRef } from '@angular/core';
+import { ContextProviderComponent } from '../context-provider/context-provider.component';
 
 @Component({
   selector: 'context-consumer',
@@ -8,12 +7,8 @@ import { ContextProviderService } from '../context-provider.service';
   styleUrls: ['./context-consumer.component.sass'],
 })
 export class ContextConsumerComponent implements OnInit {
-
   constructor(
-    @Optional() @SkipSelf() private providerDir: ContextProviderDirective,
-    @Optional() @SkipSelf() private provider: ContextProviderComponent,
-    @Host() @SkipSelf() @Optional() private host: ContextProviderComponent,
-    @Host() @SkipSelf() @Optional() private service: ContextProviderService,
+    @Optional() private context: ContextProviderComponent | null
   ) { }
 
   value: number = 0;
@@ -21,17 +16,21 @@ export class ContextConsumerComponent implements OnInit {
   @Input()
   name: string = 'no-name';
 
-  ngOnInit(): void {
-    console.log(this.provider);
 
-    if (this.provider) {
-      this.provider.consumers.push(this);
+  trySubscribe() {
+
+  }
+
+  ngOnInit(): void {
+    console.log(this.context);
+
+    if (this.context) {
+      if (this.context) {
+        this.context.consumers.push(this);
+      }
       return;
     }
 
-    if (this.providerDir) {
-      this.providerDir.setConsumer(this);
-    }
   }
 
   onChange(v: any) {
