@@ -6,23 +6,23 @@
   <button (click)="this.handleClick2()">
     increase v2
   </button>
+  <br />
 
+  works
   <context-provider [value]="this.v">
     <context-consumer>
     </context-consumer>
   </context-provider>
-
+  works
   <context-provider [value]="this.v">
     <other>
     </other>
   </context-provider>
 
+  does not work
   <other-with [v]="this.v2">
     <context-consumer>
     </context-consumer>
   </other-with>
-
-  <context-consumer>
-  </context-consumer>
 
 </div>
