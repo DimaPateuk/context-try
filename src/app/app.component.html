@@ -1,5 +1,16 @@
 <div>
-  <button (click)="this.handleClick()">
+  <button (click)="this.handleLowClick()">increase v</button>
+
+  <button (click)="this.handleMajorClick()">increase v2</button>
+  <context-provider [value]="appState_1">
+    <parent-pure></parent-pure>
+  </context-provider>
+  <context-provider [value]="appState_2">
+    <parent-projection>
+      <child-pure></child-pure>
+    </parent-projection>
+  </context-provider>
+  <!-- <button (click)="this.handleClick()">
     increase v
   </button>
 
@@ -15,11 +26,10 @@
   <context-provider [value]="this.v">
     <context-consumer>
     </context-consumer>
-  </context-provider>
+  </context-provider> -->
 
   <!-- <context-provider [value]="this.v"> -->
   <!--   <other> -->
   <!--   </other> -->
   <!-- </context-provider> -->
-
 </div>
