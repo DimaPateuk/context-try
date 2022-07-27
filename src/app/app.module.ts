@@ -2,26 +2,37 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ContextProviderComponent, ContextProviderDirective } from './context-provider/context-provider.component';
-import { ContextConsumerComponent } from './context-consumer/context-consumer.component';
-import { OtherComponent } from './other/other.component';
-import { OtherWithComponent } from './other-with/other-with.component';
-import { OtherWithConsumerComponent } from './other-with-consumer/other-with-consumer.component';
+import { ChildComponent } from './service-test/child-component/child.component';
+import {
+  ContextProvider
+} from './service-test/context-provider/context-provider.component';
+import {
+  ParentComponentProjection
+} from './service-test/parent-component-projection/parent.component';
+import {
+  ParentComponent
+} from './service-test/parent-component/parent.component';
 
+// import {
+//   ContextProviderComponent,
+//   ContextProviderDirective
+// } from './context-provider/context-provider.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ContextProviderComponent,
-    ContextConsumerComponent,
-    OtherComponent,
-    OtherWithComponent,
-    OtherWithConsumerComponent,
-    ContextProviderDirective,
+    // ContextProviderComponent,
+    // ContextConsumerComponent,
+    // OtherComponent,
+    // OtherWithComponent,
+    // OtherWithConsumerComponent,
+    // ContextProviderDirective,
+    ParentComponent,
+    ParentComponentProjection,
+    ChildComponent,
+    ContextProvider,
   ],
-  imports: [
-    BrowserModule,
-  ],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
